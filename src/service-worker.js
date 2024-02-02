@@ -81,13 +81,10 @@ self.addEventListener('activate',(event)=>{
   // console.log('서비스워커 동작 시작되고 있음...')
 })
 
-
-
-
-self.addEventListener('message',(event)=>{
+self.addEventListener('push',(event)=>{
   console.log('메세지가?....', event.data);
   const option = {
-   body: event.data.message,
+   body: 'event.data.message',
    icon:'favicon.ico',    /* 제목옆에 작은 원형이미지 */
    image:'milky-way.jpg',  /* 내용썸네일 */
    badge:'logo192.png',
@@ -97,7 +94,9 @@ self.addEventListener('message',(event)=>{
        {action:'close', title:'닫기'}
    ]
   }  
-  self.registration.showNotification('title', option);
+  event.waitUntil( 
+    self.registration.showNotification('title', option)
+  );
 })
 
 

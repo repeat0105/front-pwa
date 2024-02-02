@@ -32,7 +32,7 @@ export function register(config) {
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
       
-      const domain = 'https://port-0-express-jvvy2blm4a51lv.sel5.cloudtype.app'
+      const domain = 'https://port-0-server-pwa-4vrp32alrjy7vf9.sel5.cloudtype.app'
       
       function urlBase64ToUint8Array(base64String) {
         var padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -68,7 +68,7 @@ export function register(config) {
           })
       }
 
-      if (isLocalhost) {
+      if (!isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
 
